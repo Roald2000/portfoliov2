@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: Roboto;
+  margin     : 0;
+  padding    : 0;
+  box-sizing : border-box;
+  list-style : none;
+}
+
+:root {
+  --primary-color   : #ffffff;
+  --secondary-color : #ffb800;
+  --text-color      : #333333;
+  --background-color: #1c1c1c;
+  --accent-color    : #000000;
+}
+
+:root[data-theme="dark"] {
+  --primary-color   : #1c1c1c;
+  --secondary-color : #ffb800;
+  --text-color      : #ffffff;
+  --background-color: #ffffff;
+  --accent-color    : #000000;
+}
+
+body {
+  background-color: var(--background-color);
+  color           : var(--text-color);
+  transition      : background-color 0.3s ease, color 0.3s ease;
+}
+
+
+header {
+
+  position: sticky;
+  width   : 100%;
+  z-index : 100;
+  top     : 0;
+  left    : 0;
+
+  background-color: var(--primary-color);
+  padding         : 10px 5px;
+  display         : flex;
+  justify-content : space-between;
+  align-items     : center;
+}
+
+nav ul {
+  display        : flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color          : var(--text-color);
+  text-decoration: none;
+  padding        : 5px 10px;
+  transition     : color 0.3s ease;
+  cursor         : pointer;
+}
+
+nav ul li a.active-link {
+  color         : var(--secondary-color);
+  font-weight   : bold;
+  border-bottom : 2px solid var(--secondary-color);
+  padding-bottom: 3px;
+  transition    : color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.toggle-button {
+  border       : none;
+  transition   : background-color 0.3s ease, color 0.3s ease;
+  padding      : 10px 20px;
+  cursor       : pointer;
+  border-radius: .6em;
+}
+
+.toggle-button.dark-mode {
+  background-color: var(--primary-color);
+  color           : var(--text-color);
+}
+
+
+.toggle-button .svg-inline--fa {
+  color: inherit;
+}
+
+.toggle-button.dark-mode .svg-inline--fa {
+  color: var(--text-color);
+}
+
+.toggle-button:not(.dark-mode) .svg-inline--fa {
+  color: var(--secondary-color);
+}
+
+
+
+
+
+main {
+  overflow: hidden;
+}
+
+section {
+  min-height   : 100dvh;
+  width        : 100dvw;
+  display      : grid;
+  place-content: center;
+}
+
+
+
+.no-drag {
+  -webkit-user-drag  : none;
+  user-drag          : none;
+  -moz-user-select   : none;
+  -webkit-user-select: none;
+  -ms-user-select    : none;
+  user-select        : none;
+}
+
+
+
+
+/* @keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+} */

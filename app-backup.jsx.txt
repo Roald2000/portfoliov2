@@ -1,0 +1,179 @@
+import { Link } from "react-scroll";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useState, useEffect } from "react";
+
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
+
+import {
+  jsLanguageLogo, phpLanguageLogo,
+  htmlFrontEndLogo, cssFrontEndLogo, reactFrontEndLogo, tailwindFrontEndLogo,
+  nodeBackEndLogo, mysqlBackEndLogo, xamppBackEndLogo, expressBackEndLogo
+} from './assets/svg_imports';
+
+const Navigation = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  return (
+    <nav>
+      <ul>
+        <li>
+          <Link
+            to="intro"
+            smooth={true}
+            duration={500}
+            activeClass="active-link"
+            spy={true}
+            offset={-50}
+            onSetActive={() => AOS.refresh()}
+          >
+            Intro
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="skills"
+            smooth={true}
+            duration={500}
+            activeClass="active-link"
+            spy={true}
+            offset={-50}
+            onSetActive={() => AOS.refresh()}
+          >
+            Skills
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="tools"
+            smooth={true}
+            duration={500}
+            activeClass="active-link p-2"
+            spy={true}
+            offset={-50}
+            onSetActive={() => AOS.refresh()}
+          >
+            Languages & Frameworks
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  );
+};
+
+const App = () => {
+  const [isDarkMode, setDarkMode] = useState(true);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!isDarkMode);
+  };
+
+  useEffect(() => {
+
+    AOS.init({
+      offset: 200,
+      duration: 600,
+      easing: 'ease-in-sine',
+      delay: 100,
+    });
+
+    if (isDarkMode) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+  }, [isDarkMode]);
+
+  return (
+    <>
+      <header>
+        <Navigation />
+        <button type="button" onClick={toggleDarkMode} className={`toggle-button ${isDarkMode ? 'dark-mode' : ''}`}>
+          {isDarkMode ? <FontAwesomeIcon icon={faMoon} /> : <FontAwesomeIcon icon={faSun} />}
+        </button>
+      </header>
+      <main>
+        <section data-aos="fade-down" id='intro' className={`${isDarkMode ? 'text-black' : 'text-white'}`}>
+          <div className="p-3 rounded-md  min-w-[70dvw] max-w-[60dvw] w-[80dvw]">
+            <h1 className="text-3xl">Hi! My name is <span className={`p-2 rounded ${!isDarkMode ? 'bg-[#ffb800] text-[#1c1c1c]' : 'bg-[#1c1c1c] text-[#ffb800]'}`}>Roald</span></h1>
+            <br />
+            <p className="text-justify text-xl">
+              Welcome to my portfolio! I{"'"}m a web developer specializing in back-end development with expertise in building RESTful APIs using MySQL, XAMPP, Node.js, and Express.js. While my primary focus is on the back-end, I also have knowledge of front-end technologies such as HTML, CSS, and JavaScript. Although I may not consider myself a front-end expert, I strive to create functional and visually appealing interfaces. Feel free to explore my <a className="p-1 rounded-md bg-blue-500 text-white" href="https://github.com/Roald2000" target="_blank" rel="noreferrer">GitHub</a> to see examples of my work in API development and front-end projects. Thank you for visiting!
+            </p>
+          </div>
+        </section>
+        <section data-aos="fade-in-zoom" id='skills' className={`${isDarkMode ? 'text-black' : 'text-white'}`}>
+          <h1 className="text-3xl text-center font-bold">Skills & Expertise</h1>
+          <hr className="my-6 p-[3px] bg-[#ffb800] border-none " />
+          <div className="flex flex-col gap-6 justify-center items-center max-w-[90dvw]">
+            <div data-aos="fade-up">
+              <h1 className={`text-2xl w-fit p-3 rounded-md ${!isDarkMode ? 'text-[#ffb800] bg-white' : ' bg-[#ffb800] text-white'}`}>
+                Front-End Web Development
+              </h1>
+              <br />
+              <p className="pl-6 text-justify">
+                Proficient in creating visually appealing and responsive user interfaces using HTML, CSS, and JavaScript. Skilled in utilizing front-end frameworks such as ReactJS and TailwindCSS to build interactive web applications that enhance user experience.
+              </p>
+            </div>
+            <div data-aos="fade-up">
+              <h1 className={`text-2xl w-fit p-3 rounded-md ${!isDarkMode ? 'text-[#ffb800] bg-white' : ' bg-[#ffb800] text-white'}`}>
+                Back-End Web Development</h1>
+              <br />
+              <p className="pl-6 text-justify">
+                Experienced in developing server-side applications and databases using Node.js or PHP. Proficient in designing and implementing RESTful APIs to facilitate seamless communication between the front-end and back-end components of web applications.
+              </p>
+            </div>
+            <div data-aos="fade-up">
+              <h1 className={`text-2xl w-fit p-3 rounded-md ${!isDarkMode ? 'text-[#ffb800] bg-white' : ' bg-[#ffb800] text-white'}`}>
+                RESTful API Development</h1>
+              <br />
+              <p className="pl-6 text-justify">
+                Well-versed in designing and implementing RESTful APIs, adhering to industry best practices and standards. Experienced in creating endpoints, handling authentication, and managing data transfer between clients and servers.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section data-aos="fade-out-zoom" id='tools' className={`${isDarkMode ? 'text-black' : 'text-white'}`}>
+          <h1 className="text-center text-3xl font-bold">Tools Used for Developing Web Applications</h1>
+          <hr className="my-6 p-[3px] bg-[#ffb800] border-none " />
+          <div className="flex flex-row gap-6 justify-center items-center max-w-[90dvw]">
+            <div className="flex flex-row flex-wrap justify-center items-center gap-2">
+              <img src={htmlFrontEndLogo} className="no-drag w-[150px]" alt="HTML Logo" />
+              <img src={cssFrontEndLogo} className="no-drag w-[150px]" alt="CSS Logo" />
+              <img src={jsLanguageLogo} className="no-drag w-[150px]" alt="JavaScript Logo" />
+            </div>
+            <div className="flex flex-row flex-wrap justify-center items-center gap-2">
+              <img src={reactFrontEndLogo} className="no-drag w-[150px]" alt="React JS Logo" />
+              <img src={tailwindFrontEndLogo} className="no-drag w-[150px]" alt="Tailwind CSS Logo" />
+            </div>
+            <div className="flex flex-row flex-wrap justify-center items-center gap-2">
+              <img src={expressBackEndLogo} className="no-drag w-[150px]" alt="Express JS Logo" />
+              <img src={nodeBackEndLogo} className="no-drag w-[150px]" alt="Node JS Logo" />
+            </div>
+            <div className="flex flex-row flex-wrap justify-center items-center gap-3">
+              <img src={xamppBackEndLogo} className="no-drag w-[150px]" alt="XAMPP Logo" />
+              <img src={mysqlBackEndLogo} className="no-drag w-[150px]" alt="MySQL Logo" />
+              <img src={phpLanguageLogo} className="no-drag w-[150px]" alt="HyperText PreProcessor (PHP) Logo" />
+            </div>
+          </div>
+        </section>
+      </main >
+      <footer>
+        <p className="p-2 rounded-md my-6 text-black">
+          Portfolio | &copy; Roald Dela Cruz  2023
+        </p>
+      </footer>
+    </>
+  );
+};
+
+export default App;
+
+
+{/* <p>
+  Welcome to my portfolio! I{"'"}m a web developer specializing in back-end development with expertise in building RESTful APIs using MySQL, XAMPP, Node.js, and Express.js. While my primary focus is on the back-end, I also have knowledge of front-end technologies such as HTML, CSS, and JavaScript. Although I may not consider myself a front-end expert, I strive to create functional and visually appealing interfaces. Feel free to explore my portfolio to see examples of my work in API development and front-end projects. Thank you for visiting!
+</p> */}
