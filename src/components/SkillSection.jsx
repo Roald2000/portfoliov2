@@ -2,7 +2,7 @@ import PTypes from 'prop-types';
 
 const SkillSection = ({ isDarkMode }) => {
     return <section data-aos="fade-in-zoom" id='skills' className={`${isDarkMode ? 'text-black' : 'text-white'}`}>
-        <h1 className="text-3xl text-center font-bold">Skills & Expertise</h1>
+        <h1 className="text-3xl text-center font-bold">Skills</h1>
         <hr className="my-6 p-[3px] bg-[#ffb800] border-none " />
         <div className="flex flex-col gap-6 justify-center items-center max-w-[90dvw]">
             <div data-aos="fade-up">
