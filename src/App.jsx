@@ -55,12 +55,7 @@ const App = () => {
         <IntroSection isDarkMode={isDarkMode} />
         <SkillSection isDarkMode={isDarkMode} />
         <TechStack isDarkMode={isDarkMode} />
-      </main >
-      <footer className='p-4'>
-        <p className={`p-2 rounded-md my-6 ${isDarkMode ? ' text-black' : 'text-[#ffb800] bg-white'} w-fit mx-auto my-3`}>
-          Portfolio | &copy; Roald Dela Cruz  2023
-        </p>
-      </footer>
+      </main > 
     </>
   );
 };

@@ -45,7 +45,7 @@ const Navigation = () => {
                         offset={-50}
                         onSetActive={() => AOS.refresh()}
                     >
-                        Languages & Frameworks
+                        Tech Stacks
                     </Link>
                 </li>
             </ul>

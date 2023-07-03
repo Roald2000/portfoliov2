@@ -8,7 +8,7 @@ import {
 
 const TechStack = ({ isDarkMode }) => {
     return <section data-aos="fade-out-zoom" id='tools' className={`${isDarkMode ? 'text-black' : 'text-white'}`}>
-        <h1 className="text-center text-3xl font-bold">Tools/Technologies Used for Developing Web Applications</h1>
+        <h1 className="text-center text-3xl font-bold">Tools/Technologies Used for Developing Web Applications and APIs</h1>
         <hr className="my-6 p-[3px] bg-[#ffb800] border-none " />
         <div className="flex flex-row gap-6 justify-center items-center max-w-[90dvw]">
             <div className="flex flex-row flex-wrap justify-center items-center gap-2">
